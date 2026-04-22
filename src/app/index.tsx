@@ -1,14 +1,9 @@
-import { Button } from '@/shared/ui/button';
+import { RouterProvider } from 'react-router';
 
-import { ThemeProvider } from './Providers/Theme/ThemeProvider';
+import { appRouter } from './Providers/router';
+import { useThemeSync } from './Providers/Theme/hook/useThemeSync';
 
 export const App = () => {
-  return (
-    <ThemeProvider>
-      <h1>App</h1>
-      <Button variant={'outline'} className="w-full">
-        Some button
-      </Button>
-    </ThemeProvider>
-  );
+  useThemeSync();
+  return <RouterProvider router={appRouter} />;
 };
